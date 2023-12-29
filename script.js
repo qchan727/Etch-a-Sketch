@@ -2,23 +2,27 @@
 
 const grid = document.querySelector(".grid");
 const btnClear = document.querySelector(".btn--clear");
-const SIZE = 100;
+const btnSize = document.querySelector(".btn--size");
+let SIZE = 16;
 
-for (let i = 0; i < SIZE; i++) {
-   const row = document.createElement("div");
-   row.classList.add("row");
-   grid.appendChild(row);
+function createGrid(size) {
+   for (let i = 0; i < size; i++) {
+      const row = document.createElement("div");
+      row.classList.add("row");
+      grid.appendChild(row);
+   }
+
+   const rows = document.querySelectorAll(".row");
+   rows.forEach((row) => {
+      for (let i = 0; i < size; i++) {
+         const square = document.createElement("div");
+         square.classList.add("square");
+         row.appendChild(square);
+      }
+   });
 }
 
-const rows = document.querySelectorAll(".row");
-rows.forEach((row) => {
-   for (let i = 0; i < SIZE; i++) {
-      const square = document.createElement("div");
-      square.classList.add("square");
-      row.appendChild(square);
-   }
-});
-
+createGrid(SIZE);
 let isDrawing = false;
 
 function handleMouseDown(event) {
@@ -53,4 +57,12 @@ btnClear.addEventListener("click", () => {
          square.classList.remove("square--colored");
       }
    });
+});
+
+btnSize.addEventListener("click", () => {
+   SIZE = Number(
+      prompt("What size n do you want the nxn grid to be? (Max 100)")
+   );
+   grid.innerHTML = "";
+   createGrid(SIZE);
 });
