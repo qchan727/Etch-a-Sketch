@@ -63,6 +63,10 @@ btnSize.addEventListener("click", () => {
    SIZE = Number(
       prompt("What size n do you want the nxn grid to be? (Max 100)")
    );
-   grid.innerHTML = "";
+
+   while (grid.childElementCount > 1) {
+      grid.removeChild(grid.lastChild);
+   }
+
    createGrid(SIZE);
 });

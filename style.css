@@ -17,42 +17,51 @@ body {
 }
 
 .heading-primary {
-   font-size: 3.6rem;
+   font-size: 6.4rem;
    color: #2e2e2e;
+   margin-top: 3.2rem;
+   margin-bottom: 3.2rem;
 }
 
 .container {
-   margin: 0 auto;
-   width: 95rem;
-   margin-top: 3.2rem;
-   margin-bottom: 1.6rem;
-   display: flex;
-   justify-content: space-between;
-   gap: 3.2rem;
+   /* display: flex;
+   gap: 6.4rem;
+   justify-content: center; */
 }
 
 .controls {
    display: flex;
-   gap: 1.2rem;
+   flex-direction: column;
+   gap: 3.2rem;
+   position: absolute;
+   top: 50%;
+   left: 110%;
+
+   transform: translateY(-50%);
 }
 
 .btn {
    font-family: inherit;
-   font-size: 2.4rem;
+   font-size: 1.8rem;
    border: none;
-   padding: 1.2rem 2.4rem;
-   background-color: #c3f2f1;
+   padding: 1.2rem 5.2rem;
+   border: 0.2rem solid #2e2e2e;
    border-radius: 1.2rem;
    cursor: pointer;
+   color: #2e2e2e;
+   background-color: #fff;
+   text-wrap: nowrap;
 }
 
 .grid {
    margin: 0 auto;
-   width: 96rem;
-   height: 96rem;
+   width: 75rem;
+   height: 75rem;
    display: flex;
    flex-direction: column;
-   border: 0.5rem solid #2e2e2e;
+   box-shadow: 0 1.2rem 2.4rem #0000005a;
+
+   position: relative;
 }
 
 .row {
