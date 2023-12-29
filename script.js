@@ -3,7 +3,9 @@
 const grid = document.querySelector(".grid");
 const btnClear = document.querySelector(".btn--clear");
 const btnSize = document.querySelector(".btn--size");
+const color = document.querySelector(".color");
 let SIZE = 16;
+let COLOR = "#0e0e0e";
 
 function createGrid(size) {
    for (let i = 0; i < size; i++) {
@@ -29,7 +31,7 @@ function handleMouseDown(event) {
    isDrawing = true;
    const cell = event.target;
    if (cell.classList.contains("square")) {
-      cell.classList.add("square--colored");
+      cell.style.backgroundColor = COLOR;
    }
 }
 
@@ -41,7 +43,7 @@ function handleMouseMove(event) {
    if (isDrawing) {
       const cell = event.target;
       if (cell.classList.contains("square")) {
-         cell.classList.add("square--colored");
+         cell.style.backgroundColor = COLOR;
       }
    }
 }
@@ -53,9 +55,7 @@ grid.addEventListener("mouseover", handleMouseMove);
 btnClear.addEventListener("click", () => {
    const squares = document.querySelectorAll(".square");
    squares.forEach((square) => {
-      if (square.classList.contains("square--colored")) {
-         square.classList.remove("square--colored");
-      }
+      square.style.backgroundColor = "#fff";
    });
 });
 
@@ -69,4 +69,8 @@ btnSize.addEventListener("click", () => {
    }
 
    createGrid(SIZE);
+});
+
+color.addEventListener("change", (e) => {
+   COLOR = e.target.value;
 });
