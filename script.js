@@ -1,12 +1,13 @@
 "use strict";
 
-const container = document.querySelector(".container");
-const SIZE = 36;
+const grid = document.querySelector(".grid");
+const btnClear = document.querySelector(".btn--clear");
+const SIZE = 100;
 
 for (let i = 0; i < SIZE; i++) {
    const row = document.createElement("div");
    row.classList.add("row");
-   container.appendChild(row);
+   grid.appendChild(row);
 }
 
 const rows = document.querySelectorAll(".row");
@@ -34,7 +35,6 @@ function handleMouseUp() {
 
 function handleMouseMove(event) {
    if (isDrawing) {
-      console.log("mousemove");
       const cell = event.target;
       if (cell.classList.contains("square")) {
          cell.classList.add("square--colored");
@@ -42,6 +42,15 @@ function handleMouseMove(event) {
    }
 }
 
-container.addEventListener("mousedown", handleMouseDown);
-container.addEventListener("mouseup", handleMouseUp);
-container.addEventListener("mouseover", handleMouseMove);
+grid.addEventListener("mousedown", handleMouseDown);
+grid.addEventListener("mouseup", handleMouseUp);
+grid.addEventListener("mouseover", handleMouseMove);
+
+const squares = document.querySelectorAll(".square");
+btnClear.addEventListener("click", () => {
+   squares.forEach((square) => {
+      if (square.classList.contains("square--colored")) {
+         square.classList.remove("square--colored");
+      }
+   });
+});
