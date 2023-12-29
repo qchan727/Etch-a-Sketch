@@ -50,8 +50,8 @@ grid.addEventListener("mousedown", handleMouseDown);
 grid.addEventListener("mouseup", handleMouseUp);
 grid.addEventListener("mouseover", handleMouseMove);
 
-const squares = document.querySelectorAll(".square");
 btnClear.addEventListener("click", () => {
+   const squares = document.querySelectorAll(".square");
    squares.forEach((square) => {
       if (square.classList.contains("square--colored")) {
          square.classList.remove("square--colored");
